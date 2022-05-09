@@ -12,13 +12,13 @@ public class MemberResponseDto {
     private String nickName;
     private String job;
     private String info;
-    private Byte[] picture;
+    private Byte[] image;
 
     public MemberResponseDto(Member member) {
         this.userId = member.getId();
         this.nickName = member.getNickName();
         this.job = member.getJob();
         this.info = member.getInfo();
-        this.picture = member.getPicture();
+        this.image = member.getImage();
     }
 }

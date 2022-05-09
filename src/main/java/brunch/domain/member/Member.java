@@ -23,13 +23,17 @@ public class Member extends TimeEntity {
 
     @Lob
     @Basic(fetch = FetchType.LAZY)
-    private Byte[] picture;
+    private Byte[] image;
 
     @Builder
-    private Member(String nickName, String job, String info, Byte[] picture) {
+    private Member(String nickName, String job, String info, Byte[] image) {
         this.nickName = nickName;
         this.job = job;
         this.info = info;
-        this.picture = picture;
+        this.image = image;
+    }
+
+    public void updateImage(Byte[] image) {
+        this.image = image;
     }
 }

@@ -8,7 +8,6 @@ import brunch.domain.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @Transactional
@@ -29,33 +28,17 @@ public class PostService {
     }
 
     public void updatePost(PostRequestDto dto, Long postId, Long userId) {
-        Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new IllegalStateException("Can't find this post." + postId));
+        Post post = findPost(postId);
 
         if (!post.getMember().getId().equals(userId)) {
             throw new IllegalStateException("You do not have permission.");
         }
 
-        post.updateField(dto.getTitle(), dto.getContent(), dto.getImage());
-    }
-
-    public void uploadImage(Long postId, MultipartFile file) throws Exception {
-        Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new IllegalStateException("Can't find this post." + postId));
-
-        Byte[] image = new Byte[file.getBytes().length];
-        int i = 0;
-
-        for (Byte b : image) {
-            image[i++] = b;
-        }
-
-        post.updateImage(image);
+        post.updateField(dto.getTitle(), dto.getContent());
     }
 
     public void deletePost(Long postId, Long userId) {
-        Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new IllegalStateException("Can't find this post." + postId));
+        Post post = this.findPost(postId);
 
         if (!post.getMember().getId().equals(userId)) {
             throw new IllegalStateException("You do not have permission.");
@@ -65,10 +48,16 @@ public class PostService {
     }
 
     @Transactional(readOnly = true)
-    public PostResponseDto findPost(Long postId) {
+    public PostResponseDto findPostDto(Long postId) {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new IllegalStateException("Can't find this post : " + postId));
 
         return new PostResponseDto(post);
+    }
+
+    @Transactional(readOnly = true)
+    private Post findPost(Long postId) {
+        return postRepository.findById(postId)
+                .orElseThrow(() -> new IllegalStateException("Can't find this post." + postId));
     }
 }

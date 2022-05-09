@@ -1,22 +1,20 @@
 package brunch.domain.post.dto;
 
 import com.querydsl.core.annotations.QueryProjection;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Getter
+@Data
 @NoArgsConstructor
 public class PostQueryDto {
 
     //Post
-    private Long postId;
+    private Long id;
     private String title;
     private String content;
     private int commentNum;
-    private Byte[] picture;
     private LocalDateTime createTime;
 
     //Member
@@ -24,12 +22,11 @@ public class PostQueryDto {
     private String nickName;
 
     @QueryProjection
-    public PostQueryDto(Long postId, String title, String content, int commentNum, Byte[] picture, LocalDateTime createTime, Long userId, String nickName) {
-        this.postId = postId;
+    public PostQueryDto(Long id, String title, String content, int commentNum, LocalDateTime createTime, Long userId, String nickName) {
+        this.id = id;
         this.title = title;
         this.content = content;
         this.commentNum = commentNum;
-        this.picture = picture;
         this.createTime = createTime;
         this.userId = userId;
         this.nickName = nickName;

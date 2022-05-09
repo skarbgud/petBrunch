@@ -34,28 +34,18 @@ public class Post extends TimeEntity {
     private int empathy;
     private int commentNum;
 
-    @Lob
-    @Basic(fetch = FetchType.LAZY)
-    private Byte[] image;
-
     @Builder
-    private Post(Member member, String title, String content, int view, int empathy, int commentNum, Byte[] image) {
+    private Post(Member member, String title, String content, int view, int empathy, int commentNum) {
         this.member = member;
         this.title = title;
         this.content = content;
         this.view = view;
         this.empathy = empathy;
         this.commentNum = commentNum;
-        this.image = image;
     }
 
-    public void updateField(String title, String content, Byte[] image) {
+    public void updateField(String title, String content) {
         this.title = title;
         this.content = content;
-        this.image = image;
-    }
-
-    public void updateImage(Byte[] image) {
-        this.image = image;
     }
 }

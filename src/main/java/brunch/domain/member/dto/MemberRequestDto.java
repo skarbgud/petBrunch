@@ -11,14 +11,14 @@ public class MemberRequestDto {
     private String nickName;
     private String job;
     private String info;
-    private Byte[] picture;
+    private Byte[] image;
 
     public Member toEntity() {
         return Member.builder()
                 .nickName(nickName)
                 .job(job)
                 .info(info)
-                .picture(picture)
+                .image(image)
                 .build();
     }
 }
