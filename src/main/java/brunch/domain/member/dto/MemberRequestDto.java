@@ -4,13 +4,15 @@ import brunch.domain.member.Member;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
+
 @Data
 @NoArgsConstructor
 public class MemberRequestDto {
 
-    private String nickName;
-    private String job;
-    private String info;
+    @NotEmpty private String nickName;
+    @NotEmpty private String job;
+    @NotEmpty private String info;
     private Byte[] image;
 
     public Member toEntity() {

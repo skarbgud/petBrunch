@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 
@@ -33,7 +34,14 @@ public class Member extends TimeEntity {
         this.image = image;
     }
 
-    public void updateImage(Byte[] image) {
+    public void updateImage(MultipartFile file) throws Exception {
+        Byte[] image = new Byte[file.getBytes().length];
+        int i = 0;
+
+        for (Byte b : image) {
+            image[i++] = b;
+        }
+
         this.image = image;
     }
 }

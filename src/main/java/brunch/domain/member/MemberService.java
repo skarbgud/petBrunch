@@ -15,14 +15,7 @@ public class MemberService {
 
     public void uploadImage(Long id, MultipartFile file) throws Exception {
         Member member = this.findMember(id);
-        Byte[] image = new Byte[file.getBytes().length];
-        int i = 0;
-
-        for (Byte b : image) {
-            image[i++] = b;
-        }
-
-        member.updateImage(image);
+        member.updateImage(file);
     }
 
     @Transactional(readOnly = true)
