@@ -28,7 +28,7 @@ public class PostService {
     }
 
     public void updatePost(PostRequestDto dto, Long postId, Long userId) {
-        Post post = findPost(postId);
+        Post post = this.findPost(postId);
 
         if (!post.getMember().getId().equals(userId)) {
             throw new IllegalStateException("You do not have permission.");
@@ -49,9 +49,7 @@ public class PostService {
 
     @Transactional(readOnly = true)
     public PostResponseDto findPostDto(Long postId) {
-        Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new IllegalStateException("Can't find this post : " + postId));
-
+        Post post = this.findPost(postId);
         return new PostResponseDto(post);
     }
 
