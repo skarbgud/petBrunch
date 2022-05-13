@@ -1,0 +1,143 @@
+dl,
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  background: none;
+}
+
+
+
+/* ----header style---- */
+
+.App-header {
+  width: 100%;
+  height: 80px;
+  z-index: 9999;
+  top: 0;
+}
+
+.header-left {
+  float: left;
+}
+
+
+.menu-btn img {
+  width: 27px;
+  height: 20px;
+}
+
+.header-left h1 {
+  display: inline-block;
+}
+
+.logo {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.header-right {
+  float: right;
+}
+
+
+/* ----list style---- */
+
+.list-common {
+  width: 700px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.list-common li {
+  overflow: hidden;
+  width: 100%;
+  padding: 25px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.list-thumb {
+  float: right;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-left: 40px;
+  background-position: 0 -280px;
+  background-color: #959595;
+}
+
+.thumb-img {
+  display: block;
+}
+
+.list-common,
+.list-content {
+  overflow: hidden;
+}
+
+
+
+.list-tit {
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 28px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-desc {
+  display: block;
+  padding-top: 5px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #666;
+  max-height: 43px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.append-common {
+  white-space: nowrap;
+}
+
+.append-common {
+  overflow: hidden;
+  width: 100%;
+  padding-top: 18px;
+  font-size: 12px;
+  color: #959595;
+}
+
+.by {
+  float: left;
+  margin-right: 2px;
+  font-size: 12px;
+  font-family: Georgia;
+  font-style: italic;
+  color: #bfbfbf;
+}
+
+.link-bloger {
+  float: left;
+  color: #959595;
+}
+
+.dot {
+  float: left;
+  width: 2px;
+  height: 2px;
+  margin: 8px 6px 11px;
+  background-color: #bfbfbf;
+  vertical-align: top;
+}
